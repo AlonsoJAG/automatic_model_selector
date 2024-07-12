@@ -2,8 +2,6 @@
 
 <p align="center">
   <img width="460" height="300" src="!https://github.com/user-attachments/assets/9acd9692-2079-4073-b71f-568cde7cf21a/">
-/">
-/">
 </p>
 
 
