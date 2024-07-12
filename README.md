@@ -1,7 +1,8 @@
 <h1 align="center"> Armed People Detectors to use in each video frame (APD4F)</h1> 
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/user-attachments/assets/c7ac8d79-0978-481b-baa9-2555236af611/">
+  <img width="460" height="300" src="[amado2.pdf](https://github.com/user-attachments/files/16199686/amado2.pdf)
+/">
 </p>
 
 
