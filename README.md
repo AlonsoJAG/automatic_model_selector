@@ -35,3 +35,10 @@ APDs are generated using six ML models, RFC-APD, MLP-APD, SVM-APD, LR-APD, GBC-A
 The dataset was created by processing each video frame. We extracted data from each frame related to combining all people with all weapons. Thus, the records are made up by grouping the data of the first person with the data corresponding to the first weapon. Then, the first person with the second weapon, and so on, taking all the people and handguns. Consequently, the number of records per frame depends on the number of people and guns. The ground truth used for APDs indicates whether the person is armed or unarmed. Meanwhile, the applied ground truth for the APD4F is represented by the APDs with the highest probability of correctly predicting the record. The datasets used for both
 techniques, APD and APD4F, have the same predictors. They only vary in the ground truth and the amount of data used for training and testing.The datasets can be downloaded at [dataset](dataset).
 
+<p align="center">
+  <img width="950" height="220" src="https://github.com/user-attachments/assets/9f86859d-3339-41dc-bd65-64df6e3e8a55">
+</p>
+
+## YOLO
+We used our dataset to train the YOLOv4 object detector. We trained it from scratch to recognize faces, handguns, and people in the video. We randomly divided our [dataset](datasets/yolo) into 4,000 images for training and 1,000 for testing.  Afterward, we downloaded YOLOv4 from [Alexey Bochkovskiy’s GitHub](https://github.com/AlexeyAB/darknet) (YOLOv4 creator’s GitHub repository). This repository explains in detail how to configure YOLO. In the folder that contains the YOLO dataset we can find four files, which detail the classes, the location of the training and test images. These files are necessary for its operation. Furthermore, we trained YOLOv4 for 6,000 iterations. The [YOLO folder](yolo) includes two files, one is the settings used in YOLO, and the other contains the training weights. These files will allow you to apply YOLO to detect the three classes: weapons, faces, and people.
+
