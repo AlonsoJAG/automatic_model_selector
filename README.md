@@ -15,7 +15,7 @@ This research aims to improve the automatic identification of armed people in su
 
 * [APD4F](APD4F_scripts)
 
-* [APD]()
+* [APD](models/APD)
 
 * [Dataset Generator](dataset_generator)
 
@@ -25,6 +25,6 @@ This research aims to improve the automatic identification of armed people in su
 
 * [Yolo](yolo)
 
-## Armed People Detection Algorithm
+## Armed People Detectors to use in each video frame
 The algorithm is used to detect armed people. The file is saved in the armed_people_detection_algorithm folder with the name accuracy. This algorithm works together with YOLOv4 so the [darknet module](https://github.com/AlexeyAB/darknet) must be imported. The armed person and face detection models have been trained in [Jupyter Notebook](notebooks) and imported into this algorithm through the use of the pickle library. These trained models are shared in the folder named [models/ml_armed_people_detection](models/ml_armed_people_detection) and [models/ml_faces_armed_people_detection](models/ml_faces_armed_people_detection).
 
