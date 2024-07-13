@@ -13,7 +13,7 @@ This research aims to improve the automatic identification of armed people in su
 
 ## Table of Contents
 
-* [Armed People Detection Algorithm](armed_people_detection_algorithm)
+* [APD4F](APD4F_scripts)
 
 * [Dataset Generator](dataset_generator)
 
