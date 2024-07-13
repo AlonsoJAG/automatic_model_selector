@@ -15,11 +15,11 @@ This research aims to improve the automatic identification of armed people in su
 
 * [APD4F](APD4F_scripts)
 
+* [APD]()
+
 * [Dataset Generator](dataset_generator)
 
 * [Datasets](datasets)
-
-* [Heuristics](heuristics)
 
 * [Videos](videos)
 
