@@ -33,7 +33,7 @@ APDs are generated using six ML models, RFC-APD, MLP-APD, SVM-APD, LR-APD, GBC-A
 
 ## Dataset
 The dataset was created by processing each video frame. We extracted data from each frame related to combining all people with all weapons. Thus, the records are made up by grouping the data of the first person with the data corresponding to the first weapon. Then, the first person with the second weapon, and so on, taking all the people and handguns. Consequently, the number of records per frame depends on the number of people and guns. The ground truth used for APDs indicates whether the person is armed or unarmed. Meanwhile, the applied ground truth for the APD4F is represented by the APDs with the highest probability of correctly predicting the record. The datasets used for both
-techniques, APD and APD4F, have the same predictors. They only vary in the ground truth and the amount of data used for training and testing.The datasets can be downloaded at [dataset](dataset).
+techniques, APD and APD4F, have the same predictors. They only vary in the ground truth and the amount of data used for training and testing.The datasets can be downloaded at [dataset](dataset). The distribution of the datasets is detailed in the table shown below.
 
 <p align="center">
   <img width="500" height="180" src="https://github.com/user-attachments/assets/25f25202-da6e-455a-8c1a-1ab66e1b79d9">
