@@ -36,7 +36,7 @@ The dataset was created by processing each video frame. We extracted data from e
 techniques, APD and APD4F, have the same predictors. They only vary in the ground truth and the amount of data used for training and testing.The datasets can be downloaded at [dataset](dataset).
 
 <p align="center">
-  <img width="500" height="180" src="https://github.com/user-attachments/assets/9f86859d-3339-41dc-bd65-64df6e3e8a55">
+  <img width="500" height="180" src="https://github.com/user-attachments/assets/25f25202-da6e-455a-8c1a-1ab66e1b79d9">
 </p>
 
 ## YOLO
