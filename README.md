@@ -19,7 +19,7 @@ This research aims to improve the automatic identification of armed people in su
 
 * [Dataset Generator](dataset_generator)
 
-* [Datasets](datasets)
+* [Dataset](dataset)
 
 * [Videos](videos)
 
