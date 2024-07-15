@@ -56,8 +56,8 @@ Line 265:
 ```
 ```
 On line 189, we can unlock the normalization of the data:
-Line 189:
-    #predictors_per = ((predictors_per - u)) / s # Only for mlp, knn, and svm. <--------------
+Line 676 and 805 (ADP4F with 2 APDs):
+    #predictors_per = ((predictors_per - u)) / s # Only for mlp and svm. <--------------
     predictors_per = np.array(predictors_per).reshape(1,-1)
     print(predictors_per)
     ypredic_per = loaded_model_per.predict(predictors_per)
@@ -66,7 +66,7 @@ Line 189:
 
 ```
 On line 322, we can find the code to select the models to use both to detect people and their faces:
-Line 322:
+Line 938(ADP4F with 2 APDs):
     #People detection model
     #loaded_model_per = pickle.load(open('./modelos/hg/rfc_t4.sav', 'rb'))
     loaded_model_per = pickle.load(open('./modelos/hg/rfc11.sav', 'rb'))
@@ -80,11 +80,12 @@ Line 322:
     #loaded_model_fac = pickle.load(open('./modelos/fac/mlp_t.sav', 'rb'))
     #loaded_model_fac = pickle.load(open('./modelos/fac/mlp.sav', 'rb'))
 ```
-On line 377, we can unlock the code that allows us to make detections through the web camera in real-time. On line 378, we can specify the path where the video we want to work with is.
+On line 993 (ADP4F with 2 APDs), we can unlock the code that allows us to make detections through the web camera in real-time. On line 994 (ADP4F with 2 APDs), we can specify the path where the video we want to work with is.
 ```
-Line 377:
+Line 993 (ADP4F with 2 APDs):
     #cap = cv2.VideoCapture(0)
-Line 378:
+
+Line 994 (ADP4F with 2 APDs):
     cap = cv2.VideoCapture("./videos_entrada/trasera.mp4")   # <----- Replace with your video directory
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
@@ -92,16 +93,16 @@ Line 378:
 ```
 On line 93, we can modify the position where the file with the results of the processed video will be saved. This shows us that people were armed and unarmed. In lines 202 and 208 we can modify the predictors that we want to be shown in the results.
 ```
-Line 93:
+Line 566 (ADP4F with 2 APDs):
     archivo = open("./label/results" + "_video_test" + ".txt", "a")
 ```
 ```
-Lines 202 and 208:
+Lines 924 (ADP4F with 2 APDs):
     archivo.write(f"{currentframe},{nper},{per_xmid},{ypredic_per},{prob0},{prob1},{prediction}\n")
 ```
-On line 309, you can modify the route where the faces of armed people are stored.
+On line 916 (ADP4F with 2 APDs), you can modify the route where the faces of armed people are stored.
 ```
-Line 309:
+Line 916 (ADP4F with 2 APDs):
     cv2.imwrite('./cropped_faces/frame' + str(currentframe) + '.jpg', cropped_image)
 ```
 
