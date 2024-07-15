@@ -24,33 +24,40 @@ This research aims to improve the automatic identification of armed people in su
 * [Yolo](yolo)
 
 ## Armed People Detectors to use in each video frame
-The main goal of APD4Fs is to identify and apply the best APDs to a specific situation presented in the video. APD4Fs are designed by combining two or three APDs. We developed 43 APD4Fs using two ML models, Random Forest and Multilayer Perceptron. The APDs are RFC-APD, MLP-APD, SVM-APD, LR-APD, NB-APD, and GBC-APD. The APD dataset is developed taking as ground truth the APD with the highest probability of correctly predicting the armed or unarmed person in each case of the training video
-
-The two versions of the algorithm, with two or three APDs can be downloaded from [APD4F_scripts](APD4F_scripts). The file are saved in the APD4F_scripts folder with the name ams_2_modelos and ams_3_modelos. These algorithms work together with YOLOv4 so the [darknet module](https://github.com/AlexeyAB/darknet) must be imported. The APD4Fs, APDs and face detection models have been trained in [Jupyter Notebook](notebooks) and imported into these algorithms through the use of the pickle library. These trained models are shared in the folder named [models/APD4F](models/APD4F), [models/APD](models/APD) and [models/ml_faces_armed_people_detection](models/ml_faces_armed_people_detection).
+The main goal of APD4Fs is to identify and apply the best APDs to a specific situation presented in the video. APD4Fs are designed by combining two or three APDs. We developed 43 APD4Fs using two ML models, Random Forest and Multilayer Perceptron. The APDs are RFC-APD, MLP-APD, SVM-APD, LR-APD, NB-APD, and GBC-APD. The APD4F dataset is developed taking as ground truth the APD with the highest probability of correctly predicting the armed or unarmed person in each case of the training video. The dataset used to train the APD4F differs for each of
+the 43 model combinations. It is because each APD has different probabilities of predicting each record in the dataset. This way, when we combine the APDs through APD4F, the ground truth will be the APD with the highest probability. Furthermore, records that could not be resolved by APDs were omitted from the dataset. It is because the APD4F only learns to choose the APDs that correctly resolve each of the
+records in the dataset. Thereby, the datasets for each APD4F have different numbers of records.
 
 The dataset used for the MLP-APD4F training process was standardized before training using the function StandardScaler from the Scikit-Learn library (Jupyter Notebook). However, we import the models into our general system to receive the input data from YOLO’s live stream. It implies that the input data must be in the same conditions as the training process. Consequently, it was mandatory to standardize the input data in real-time, so we have applied the mathematical formula used by the StandardScaler function according to z = (x − u)/s, where x represents the input data to be standardized, u stands for the mean, and s is the standard deviation of the training samples. Below is the mean and standard deviation used to normalize the data received by YOLO in real time.
 
-```
-On line 13 (ADP4F with 2 and 3 APDs):
-    To normalize the MLP-APD, SVM-APD data (All predictors-training dataset - 28 predictors):
-    
-    u = np.array([9.09106623e+02, 1.05738223e+00, 4.01556492e+02, 4.15881999e+02,
-                  3.15145035e+02, 3.00285205e+02, 4.87967948e+02, 5.31478794e+02,
-                  3.87211508e-01, 3.15303209e+02, 3.59825385e+02, 2.92086914e+02,
-                  3.39647453e+02, 3.38519504e+02, 3.80003317e+02, 3.83417641e-01,
-                  9.68300700e+02, 2.15281262e+03, 2.31289485e+02, 1.56180841e-01,
-                  6.82105596e-02, 5.53272210e-04, 1.58077774e-04, 1.58631046e-01,
-                  5.61650332e-01, 2.06291495e-02, 5.29560544e-03, 2.86911160e-02])
+The two versions of the algorithm, with two or three APDs can be downloaded from [APD4F_scripts](APD4F_scripts). The file are saved in the APD4F_scripts folder with the name ams_2_modelos and ams_3_modelos. These algorithms work together with YOLOv4 so the [darknet module](https://github.com/AlexeyAB/darknet) must be imported. The APD4Fs, APDs and face detection models have been trained in [Jupyter Notebook](notebooks) and imported into these algorithms through the use of the pickle library. These trained models are shared in the folder named [models/APD4F](models/APD4F), [models/APD](models/APD) and [models/ml_faces_armed_people_detection](models/ml_faces_armed_people_detection).
 
-On lines 265 (ADP4F with 2 APDs) and 95 (ADP4F with 3 APDs):   
-  s = np.array([4.43693600e+02, 9.50245842e-01, 2.16075512e+02, 4.92883235e+01,
-                2.16727143e+02, 8.71466305e+01, 2.25161619e+02, 2.14580602e+01,
-                6.72153476e-01, 1.68249783e+02, 7.25382729e+01, 1.65957845e+02,
-                7.71079606e+01, 1.71079386e+02, 6.88302982e+01, 4.86218627e-01,
-                1.90893059e+03, 2.14921043e+03, 1.47367328e+02, 3.63026701e-01,
-                2.52106880e-01, 2.35152312e-02, 1.25719046e-02, 3.65331682e-01,
-                4.96184680e-01, 1.42139325e-01, 7.25779719e-02, 1.66936922e-01])
+
 ```
+From line 21 (ADP4F with 2 and 3 APDs):
+  To normalize the MLP-APD, SVM-APD data (All predictors-training dataset - 28 predictors):
+    
+  #MLP22_ams (GBC=71.67% + LR=75.11% + MLP =79.18%)
+  u2 = np.array([8.58048650e+02, 8.79589633e-01, 3.92806059e+02, 3.82440691e+02,
+                 3.05539236e+02, 2.46107454e+02, 4.80072882e+02, 5.18773927e+02,
+                 2.98218143e-01, 3.10902093e+02, 3.12445589e+02, 2.87521764e+02,
+                 2.92895493e+02, 3.34282422e+02, 3.31995685e+02, 4.19492441e-01,
+                 9.30794571e+02, 2.02757651e+03, 2.31759339e+02, 1.23164147e-01,
+                 7.43520518e-02, 3.23974082e-04, 1.07991361e-04, 2.24406048e-01,
+                 5.40172786e-01, 1.41468683e-02, 3.77969762e-03, 1.95464363e-02])
+
+
+From lines 273 (ADP4F with 2 APDs) and 104 (ADP4F with 3 APDs):   
+  #MLP22_ams (GBC=71.67% + LR=75.11% + MLP =79.18%)
+  s2 = np.array([4.60619751e+02, 8.74139036e-01, 2.12100424e+02, 6.87713103e+01,
+               2.19849845e+02, 1.11882718e+02, 2.12574870e+02, 3.91572907e+01,
+               6.00483121e-01, 1.53033612e+02, 9.71997711e+01, 1.52301205e+02,
+               9.91538035e+01, 1.54258535e+02, 9.58178561e+01, 4.93475970e-01,
+               1.66851299e+03, 1.81753387e+03, 1.37437601e+02, 3.28625531e-01,
+               2.62342952e-01, 1.79963642e-02, 1.03913280e-02, 4.17190572e-01,
+               4.98383534e-01, 1.18096293e-01, 6.13629490e-02, 1.38435447e-01])
+```
+Each APD4F has a different dataset, so the MLP-APD4F data must be standardized with its means and standard deviations. In the code, 22 arrays with their metrics have been considered. It is to calculate their standardization.
 
 ## Armed People Detectors 
 APDs are generated using six ML models, RFC-APD, MLP-APD, SVM-APD, LR-APD, GBC-APD, and NB-APD. The APDs receive 20 measurements about the bounding boxes generated by YOLO in real-time. The information is relative to the three classes, handguns, people, and faces. APDs process the information and identify the armed people involved in each video frame. Then, the information related to people, and faces is fed into the face ML model to recognize the faces of the armed people. The trained models can be downloaded at [models/APD4F](models/APD4F).
