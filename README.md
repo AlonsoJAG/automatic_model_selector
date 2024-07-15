@@ -34,7 +34,7 @@ APDs are generated using six ML models, RFC-APD, MLP-APD, SVM-APD, LR-APD, GBC-A
 The dataset used for the MLP-APD and SVM-APD training process was standardized before training using the function StandardScaler from the Scikit-Learn library (Jupyter Notebook). However, we import the models into our general system to receive the input data from YOLO’s live stream. It implies that the input data must be in the same conditions as the training process. Consequently, it was mandatory to standardize the input data in real-time, so we have applied the mathematical formula used by the StandardScaler function according to z = (x − u)/s, where x represents the input data to be standardized, u stands for the mean, and s is the standard deviation of the training samples. Below is the mean and standard deviation used to normalize the data received by YOLO in real time.
 
 ```
-Line 13:
+On line 13 (ADP4F with 2 and 3 APDs):
     To normalize the MLP-APD, SVM-APD data (All predictors-training dataset - 28 predictors):
     
     u = np.array([9.09106623e+02, 1.05738223e+00, 4.01556492e+02, 4.15881999e+02,
@@ -45,7 +45,7 @@ Line 13:
                   6.82105596e-02, 5.53272210e-04, 1.58077774e-04, 1.58631046e-01,
                   5.61650332e-01, 2.06291495e-02, 5.29560544e-03, 2.86911160e-02])
 
-Line 265:   
+On lines 265 (ADP4F with 2 APDs) and 95 (ADP4F with 3 APDs):   
   s = np.array([4.43693600e+02, 9.50245842e-01, 2.16075512e+02, 4.92883235e+01,
                 2.16727143e+02, 8.71466305e+01, 2.25161619e+02, 2.14580602e+01,
                 6.72153476e-01, 1.68249783e+02, 7.25382729e+01, 1.65957845e+02,
@@ -55,8 +55,8 @@ Line 265:
                 4.96184680e-01, 1.42139325e-01, 7.25779719e-02, 1.66936922e-01])
 ```
 ```
-On line 189, we can unlock the normalization of the data:
-Line 676 and 805 (ADP4F with 2 APDs):
+We can unlock the normalization of the data:
+On lines 676, 805 (ADP4F with 2 APDs) and 337, 466, 591 (ADP4F with 3 APDs):
     #predictors_per = ((predictors_per - u)) / s # Only for mlp and svm. <--------------
     predictors_per = np.array(predictors_per).reshape(1,-1)
     print(predictors_per)
@@ -65,8 +65,8 @@ Line 676 and 805 (ADP4F with 2 APDs):
 ```
 
 ```
-On line 322, we can find the code to select the models to use both to detect people and their faces:
-Line 938(ADP4F with 2 APDs):
+We can find the code to select the models to use both to detect people and their faces:
+On lines 938 (ADP4F with 2 APDs) and 724 (ADP4F with 3 APDs):
     #People detection model
     #loaded_model_per = pickle.load(open('./modelos/hg/rfc_t4.sav', 'rb'))
     loaded_model_per = pickle.load(open('./modelos/hg/rfc11.sav', 'rb'))
@@ -80,18 +80,18 @@ Line 938(ADP4F with 2 APDs):
     #loaded_model_fac = pickle.load(open('./modelos/fac/mlp_t.sav', 'rb'))
     #loaded_model_fac = pickle.load(open('./modelos/fac/mlp.sav', 'rb'))
 ```
-On line 993 (ADP4F with 2 APDs), we can unlock the code that allows us to make detections through the web camera in real-time. On line 994 (ADP4F with 2 APDs), we can specify the path where the video we want to work with is.
+On lines  993 (ADP4F with 2 APDs) and 778 (ADP4F with 3 APDs), we can unlock the code that allows us to make detections through the web camera in real-time. On lines 994 (ADP4F with 2 APDs) and 779 (ADP4F with 3 APDs), we can specify the path where the video we want to work with is.
 ```
-Line 993 (ADP4F with 2 APDs):
+Lines 993 (ADP4F with 2 APDs) and 778 (ADP4F with 3 APDs):
     #cap = cv2.VideoCapture(0)
 
-Line 994 (ADP4F with 2 APDs):
+Line 994 (ADP4F with 2 APDs) and 779 (ADP4F with 3 APDs):
     cap = cv2.VideoCapture("./videos_entrada/trasera.mp4")   # <----- Replace with your video directory
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
     new_height, new_width = frame_height // 2, frame_width // 2
 ```
-On line 93, we can modify the position where the file with the results of the processed video will be saved. This shows us that people were armed and unarmed. In lines 202 and 208 we can modify the predictors that we want to be shown in the results.
+On lines 1001 (ADP4F with 2 APDs) and 786 (ADP4F with 3 APDs), we can modify the position where the file with the results of the processed video will be saved. This shows us that people were armed and unarmed. In lines 924 (ADP4F with 2 APDs)and 709 (ADP4F with 3 APDs) we can modify the predictors that we want to be shown in the results.
 ```
 Line 566 (ADP4F with 2 APDs):
     archivo = open("./label/results" + "_video_test" + ".txt", "a")
