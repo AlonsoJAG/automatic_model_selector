@@ -30,6 +30,7 @@ The two versions of the algorithm, with two or three APDs can be downloaded from
 
 The dataset used for the MLP-APD4F training process was standardized before training using the function StandardScaler from the Scikit-Learn library (Jupyter Notebook). However, we import the models into our general system to receive the input data from YOLO’s live stream. It implies that the input data must be in the same conditions as the training process. Consequently, it was mandatory to standardize the input data in real-time, so we have applied the mathematical formula used by the StandardScaler function according to z = (x − u)/s, where x represents the input data to be standardized, u stands for the mean, and s is the standard deviation of the training samples. Below is the mean and standard deviation used to normalize the data received by YOLO in real time.
 
+```
 On line 13 (ADP4F with 2 and 3 APDs):
     To normalize the MLP-APD, SVM-APD data (All predictors-training dataset - 28 predictors):
     
@@ -77,6 +78,7 @@ On lines 265 (ADP4F with 2 APDs) and 95 (ADP4F with 3 APDs):
                 2.52106880e-01, 2.35152312e-02, 1.25719046e-02, 3.65331682e-01,
                 4.96184680e-01, 1.42139325e-01, 7.25779719e-02, 1.66936922e-01])
 ```
+
 ```
 We can unlock the normalization of the data:
 On lines 676, 805 (ADP4F with 2 APDs) and 337, 466, 591 (ADP4F with 3 APDs):
