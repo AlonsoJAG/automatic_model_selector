@@ -156,5 +156,5 @@ python ams_2_modelos.py
 ```
 Run for APD4F with three APDs:
 ```
-ams_3_modelos.py
+python ams_3_modelos.py
 ```
