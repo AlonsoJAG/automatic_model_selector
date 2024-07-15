@@ -91,7 +91,7 @@ Line 994 (ADP4F with 2 APDs) and 779 (ADP4F with 3 APDs):
     frame_height = int(cap.get(4))
     new_height, new_width = frame_height // 2, frame_width // 2
 ```
-On lines 1001 (ADP4F with 2 APDs) and 786 (ADP4F with 3 APDs), we can modify the position where the file with the results of the processed video will be saved. This shows us that people were armed and unarmed. In lines 924 (ADP4F with 2 APDs)and 709 (ADP4F with 3 APDs) we can modify the predictors that we want to be shown in the results.
+On lines 1001 (ADP4F with 2 APDs) and 786 (ADP4F with 3 APDs), we can modify the position where the file with the results of the processed video will be saved. This shows us that people were armed and unarmed. In lines 924 (ADP4F with 2 APDs) and 709 (ADP4F with 3 APDs) we can modify the predictors that we want to be shown in the results.
 ```
 Line 566 (ADP4F with 2 APDs):
     archivo = open("./label/results" + "_video_test" + ".txt", "a")
