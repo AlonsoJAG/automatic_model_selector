@@ -93,16 +93,16 @@ Line 994 (ADP4F with 2 APDs) and 779 (ADP4F with 3 APDs):
 ```
 On lines 1001 (ADP4F with 2 APDs) and 786 (ADP4F with 3 APDs), we can modify the position where the file with the results of the processed video will be saved. This shows us that people were armed and unarmed. In lines 924 (ADP4F with 2 APDs) and 709 (ADP4F with 3 APDs) we can modify the predictors that we want to be shown in the results.
 ```
-Line 566 (ADP4F with 2 APDs):
+Line 566 (ADP4F with 2 APDs) and 227 (ADP4F with 3 APDs):
     archivo = open("./label/results" + "_video_test" + ".txt", "a")
 ```
 ```
-Lines 924 (ADP4F with 2 APDs):
+Lines 924 (ADP4F with 2 APDs) and 709 (ADP4F with 3 APDs):
     archivo.write(f"{currentframe},{nper},{per_xmid},{ypredic_per},{prob0},{prob1},{prediction}\n")
 ```
-On line 916 (ADP4F with 2 APDs), you can modify the route where the faces of armed people are stored.
+You can modify the route where the faces of armed people are stored.
 ```
-Line 916 (ADP4F with 2 APDs):
+On lines 916 (ADP4F with 2 APDs) and 702 (ADP4F with 3 APDs):
     cv2.imwrite('./cropped_faces/frame' + str(currentframe) + '.jpg', cropped_image)
 ```
 
